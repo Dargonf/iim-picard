@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f40f7cd9-5710-4e63-b6eb-ad2b1e17d4ae" name="Changes" comment="chore: add ide config files">
+      <change afterPath="$PROJECT_DIR$/prisma.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/prisma.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/next-auth.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/personal-website-bis.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="40" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.244782364975808" />
+      <entry key="MS500" value="3.852528937684615" />
+      <entry key="S2" value="12.735877539217201" />
+      <entry key="S5" value="26.586844415334355" />
+      <entry key="S10" value="38.582624327560076" />
+      <entry key="S30" value="51.84146318424257" />
+      <entry key="S60" value="56.25501116341197" />
+      <entry key="M2" value="60.54283959002162" />
+      <entry key="M5" value="73.82519880831231" />
+      <entry key="M10" value="101.61490762068252" />
+      <entry key="M15" value="148.25012488303253" />
+      <entry key="M30" value="335.26345882368196" />
+      <entry key="H1" value="652.7541644264694" />
+      <entry key="H2" value="991.3369401630888" />
+      <entry key="H4" value="1251.0241540055943" />
+      <entry key="D1" value="1537.9315825593233" />
+      <entry key="W1" value="1595.197222468065" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="4.7239609732902983E-306" />
+      <entry key="S10" value="2.1736530619940905E-153" />
+      <entry key="S30" value="1.3542689351328068E-51" />
+      <entry key="S60" value="4.4918436817997895E-26" />
+      <entry key="M2" value="3.148456839646514E-13" />
+      <entry key="M5" value="1.9939140012905763E-5" />
+      <entry key="M10" value="0.009183676524429455" />
+      <entry key="M15" value="0.07434167332753969" />
+      <entry key="M30" value="0.6339619045935605" />
+      <entry key="H1" value="1.9154739367266778" />
+      <entry key="H2" value="3.372159160642989" />
+      <entry key="H4" value="4.491647255537047" />
+      <entry key="D1" value="5.716139272626032" />
+      <entry key="W1" value="5.958570047291667" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.1810172669324412" />
+      <entry key="MS500" value="3.8027948019336035" />
+      <entry key="S2" value="12.699102761140521" />
+      <entry key="S5" value="26.559560501350525" />
+      <entry key="S10" value="38.563774042736284" />
+      <entry key="S30" value="51.833288206894316" />
+      <entry key="S60" value="56.25061042865902" />
+      <entry key="M2" value="60.540485479659786" />
+      <entry key="M5" value="73.82408065100567" />
+      <entry key="M10" value="101.62323436452337" />
+      <entry key="M15" value="148.3234080765508" />
+      <entry key="M30" value="335.8955589000386" />
+      <entry key="H1" value="654.6674337462101" />
+      <entry key="H2" value="994.7073183184348" />
+      <entry key="H4" value="1255.5146563042963" />
+      <entry key="D1" value="1543.6474851874732" />
+      <entry key="W1" value="1601.1557574201954" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3FqlNpVV232a4GoLLyJwHsmB1Wv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/dargo/WebstormProjects/personal-website-bis/src/types",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\dargo\\WebstormProjects\\personal-website-bis\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dargo\WebstormProjects\personal-website-bis\src\types" />
+      <recent name="C:\Users\dargo\WebstormProjects\personal-website-bis" />
+      <recent name="C:\Users\dargo\WebstormProjects\personal-website-bis\src\lib" />
+      <recent name="C:\Users\dargo\WebstormProjects\personal-website-bis\src\app" />
+      <recent name="C:\Users\dargo\WebstormProjects\personal-website-bis\src\app\api" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f40f7cd9-5710-4e63-b6eb-ad2b1e17d4ae" name="Changes" comment="" />
+      <created>1782810442742</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1782810442742</updated>
+      <workItem from="1782810443956" duration="5282000" />
+      <workItem from="1782820860255" duration="346000" />
+      <workItem from="1782821221420" duration="6214000" />
+    </task>
+    <task id="LOCAL-00001" summary="chore: add ide config files">
+      <option name="closed" value="true" />
+      <created>1782811006214</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1782811006214</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: add ide config files" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: add ide config files" />
+  </component>
+</project>

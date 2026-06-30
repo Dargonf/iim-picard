@@ -1,0 +1,54 @@
+datasource db {
+    provider = "sqlite"
+}
+
+generator client-ts {
+    provider = "prisma-client"
+    output   = "../src/lib/prisma"
+}
+
+model User {
+    uuid           String    @id @default(uuid())
+    username       String    @unique
+    email          String    @unique
+    password       String
+    totp           String?
+    role           Role      @default(USER)
+    sessionVersion Int       @default(0)
+    images         Image[]
+    groups         Group[]
+}
+
+model Image {
+    id        String    @id @default(uuid())
+    name      String
+    extension String
+    isPublic  Boolean   @default(false)
+    owner     User      @relation(fields: [ownerId], references: [uuid])
+    ownerId   String
+    tags      Tag[]
+    groups    Group[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+}
+
+model Tag {
+    id     String  @id @default(uuid())
+    name   String  @unique
+    images Image[]
+}
+
+model Group {
+    id        String   @id @default(uuid())
+    name      String
+    owner     User     @relation(fields: [ownerId], references: [uuid])
+    ownerId   String
+    images    Image[]
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+enum Role {
+    USER
+    ADMIN
+}
