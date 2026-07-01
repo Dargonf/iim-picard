@@ -1,17 +1,33 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+
+interface Group {
+  id: string;
+  name: string;
+}
 
 export default function UploadPage() {
   const router = useRouter();
   const { data: session } = useSession();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [preview, setPreview] = useState<string | null>(null);
-  const [fileName, setFileName] = useState<string | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
+  const [previews, setPreviews] = useState<Map<string, string>>(new Map());
+  const [groups, setGroups] = useState<Group[]>([]);
+  const [selectedGroups, setSelectedGroups] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (session?.user) {
+      fetch("/api/groups")
+        .then((res) => res.json())
+        .then((data) => setGroups(data.groups || []))
+        .catch((err) => console.error("Error fetching groups:", err));
+    }
+  }, [session]);
 
   if (!session?.user) {
     return (
@@ -37,18 +53,35 @@ export default function UploadPage() {
   }
 
   function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.currentTarget.files?.[0];
-    if (!file) return;
+    const fileList = e.currentTarget.files;
+    if (!fileList) return;
 
-    setFileName(file.name);
+    const newFiles = Array.from(fileList);
+    const newPreviews = new Map(previews);
     setError(null);
 
-    // Create preview
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setPreview(event.target?.result as string);
-    };
-    reader.readAsDataURL(file);
+    newFiles.forEach((file) => {
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          newPreviews.set(
+            file.name,
+            event.target?.result as string
+          );
+          setPreviews(new Map(newPreviews));
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    setFiles([...files, ...newFiles]);
+  }
+
+  function removeFile(fileName: string) {
+    setFiles(files.filter((f) => f.name !== fileName));
+    const newPreviews = new Map(previews);
+    newPreviews.delete(fileName);
+    setPreviews(newPreviews);
   }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -57,44 +90,51 @@ export default function UploadPage() {
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
-    const file = formData.get("file") as File;
     const isPublic = formData.get("isPublic") === "on";
 
-    if (!file) {
-      setError("Please select a file");
+    if (files.length === 0) {
+      setError("Please select at least one file");
       setLoading(false);
       return;
     }
 
-    // Validate file type
-    if (!file.type.startsWith("image/")) {
-      setError("Please select an image file");
-      setLoading(false);
-      return;
-    }
+    // Validate file sizes (max 100MB each)
+    for (const file of files) {
+      if (!file.type.startsWith("image/")) {
+        setError(`${file.name} is not an image file`);
+        setLoading(false);
+        return;
+      }
 
-    // Validate file size (max 10MB)
-    if (file.size > 10 * 1024 * 1024) {
-      setError("File size must be less than 10MB");
-      setLoading(false);
-      return;
+      if (file.size > 100 * 1024 * 1024) {
+        setError(`${file.name} is larger than 100MB`);
+        setLoading(false);
+        return;
+      }
     }
 
     try {
-      const uploadFormData = new FormData();
-      uploadFormData.append("file", file);
-      uploadFormData.append("isPublic", isPublic.toString());
+      for (const file of files) {
+        const uploadFormData = new FormData();
+        uploadFormData.append("file", file);
+        uploadFormData.append("isPublic", isPublic.toString());
 
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: uploadFormData,
-      });
+        selectedGroups.forEach((groupId) => {
+          uploadFormData.append("groupIds", groupId);
+        });
 
-      const data = await response.json();
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: uploadFormData,
+        });
 
-      if (!response.ok) {
-        setError(data.error || "Upload failed");
-        return;
+        const data = await response.json();
+
+        if (!response.ok) {
+          setError(`Failed to upload ${file.name}: ${data.error || "Unknown error"}`);
+          setLoading(false);
+          return;
+        }
       }
 
       router.push("/images/my-images");
@@ -125,58 +165,112 @@ export default function UploadPage() {
             {/* File Upload Area */}
             <div>
               <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-                Image File
+                Image Files
               </label>
               <div className="relative">
                 <input
                   type="file"
-                  name="file"
+                  name="files"
                   accept="image/*"
+                  multiple
                   onChange={handleFileSelect}
                   disabled={loading}
                   className="sr-only"
                   id="file-input"
-                  required
                 />
                 <label
                   htmlFor="file-input"
                   className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-zinc-300 rounded-lg cursor-pointer hover:border-zinc-400 dark:border-zinc-600 dark:hover:border-zinc-500 transition-colors disabled:opacity-50"
                 >
-                  {preview ? (
-                    <div className="flex flex-col items-center justify-center h-full">
-                      <img
-                        src={preview}
-                        alt="Preview"
-                        className="max-h-28 max-w-28 object-contain"
+                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                    <svg
+                      className="w-8 h-8 text-zinc-400 mb-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 4v16m8-8H4"
                       />
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                        {fileName}
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                      <svg
-                        className="w-8 h-8 text-zinc-400 mb-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 4v16m8-8H4"
-                        />
-                      </svg>
-                      <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                        Click to upload or drag and drop
-                      </p>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-500">
-                        PNG, JPG, GIF up to 10MB
-                      </p>
-                    </div>
-                  )}
+                    </svg>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                      Click to upload or drag and drop
+                    </p>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-500">
+                      PNG, JPG, GIF up to 100MB each
+                    </p>
+                  </div>
                 </label>
+              </div>
+            </div>
+
+            {/* File Previews */}
+            {files.length > 0 && (
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                {files.map((file) => (
+                  <div key={file.name} className="relative">
+                    <div className="relative aspect-square rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-800 overflow-hidden">
+                      {previews.get(file.name) && (
+                        <img
+                          src={previews.get(file.name)}
+                          alt={file.name}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => removeFile(file.name)}
+                      disabled={loading}
+                      className="absolute top-1 right-1 rounded-full bg-red-500 text-white p-1 hover:bg-red-600 disabled:opacity-50"
+                    >
+                      ✕
+                    </button>
+                    <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 truncate">
+                      {file.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Group Selection */}
+            <div>
+              <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                Add to Groups (Optional)
+              </label>
+              <div className="space-y-2">
+                {groups.length > 0 ? (
+                  groups.map((group) => (
+                    <label key={group.id} className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={selectedGroups.has(group.id)}
+                        onChange={(e) => {
+                          const newGroups = new Set(selectedGroups);
+                          if (e.target.checked) {
+                            newGroups.add(group.id);
+                          } else {
+                            newGroups.delete(group.id);
+                          }
+                          setSelectedGroups(newGroups);
+                        }}
+                        disabled={loading}
+                        className="w-4 h-4 rounded border-zinc-300 text-black focus:ring-0 dark:bg-zinc-800 dark:border-zinc-600"
+                      />
+                      <span className="text-sm text-zinc-700 dark:text-zinc-300">
+                        {group.name}
+                      </span>
+                    </label>
+                  ))
+                ) : (
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                    No groups created yet
+                  </p>
+                )}
               </div>
             </div>
 
@@ -193,17 +287,17 @@ export default function UploadPage() {
                 htmlFor="isPublic"
                 className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
               >
-                Make this image public
+                Make these images public
               </label>
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={loading || !preview}
+              disabled={loading || files.length === 0}
               className="w-full rounded-md bg-black py-2 font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-              {loading ? "Uploading..." : "Upload Image"}
+              {loading ? "Uploading..." : `Upload ${files.length} Image${files.length !== 1 ? "s" : ""}`}
             </button>
           </form>
 

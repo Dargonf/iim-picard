@@ -19,6 +19,7 @@ export async function POST(request: Request) {
     const formData = await request.formData();
     const file = formData.get("file") as File;
     const isPublic = formData.get("isPublic") === "true";
+    const groupIds = formData.getAll("groupIds") as string[];
 
     if (!file) {
       return Response.json(
@@ -68,6 +69,11 @@ export async function POST(request: Request) {
         extension: fileExtension,
         isPublic,
         ownerId: session.user.uuid,
+        ...(groupIds.length > 0 && {
+          groups: {
+            connect: groupIds.map((id) => ({ id })),
+          },
+        }),
       },
     });
 

@@ -1,11 +1,16 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Image, Tag, Group } from "@prisma/client";
 
 interface EditImageFormProps {
   image: Image & { tags: Tag[]; groups: Group[] };
+}
+
+interface GroupOption {
+  id: string;
+  name: string;
 }
 
 export function EditImageForm({ image }: EditImageFormProps) {
@@ -15,6 +20,18 @@ export function EditImageForm({ image }: EditImageFormProps) {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState(image.name);
   const [isPublic, setIsPublic] = useState(image.isPublic);
+  const [allGroups, setAllGroups] = useState<GroupOption[]>([]);
+  const [selectedGroupIds, setSelectedGroupIds] = useState<Set<string>>(
+    new Set(image.groups.map((g) => g.id))
+  );
+  const [editingGroups, setEditingGroups] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/groups")
+      .then((res) => res.json())
+      .then((data) => setAllGroups(data.groups || []))
+      .catch((err) => console.error("Error fetching groups:", err));
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,6 +48,7 @@ export function EditImageForm({ image }: EditImageFormProps) {
         body: JSON.stringify({
           name,
           isPublic,
+          groupIds: Array.from(selectedGroupIds),
         }),
       });
 
@@ -129,11 +147,22 @@ export function EditImageForm({ image }: EditImageFormProps) {
         )}
 
         {/* Groups Info */}
-        {image.groups.length > 0 && (
-          <div>
-            <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-              Groups
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+              Groups {image.groups.length > 0 && `(${image.groups.length})`}
             </label>
+            <button
+              type="button"
+              onClick={() => setEditingGroups(!editingGroups)}
+              disabled={loading}
+              className="text-xs font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              {editingGroups ? "Done" : "Edit"}
+            </button>
+          </div>
+
+          {!editingGroups && image.groups.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {image.groups.map((group) => (
                 <span
@@ -144,11 +173,41 @@ export function EditImageForm({ image }: EditImageFormProps) {
                 </span>
               ))}
             </div>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-              Group management coming soon
-            </p>
-          </div>
-        )}
+          )}
+
+          {editingGroups && (
+            <div className="space-y-2">
+              {allGroups.length > 0 ? (
+                allGroups.map((group) => (
+                  <label key={group.id} className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      checked={selectedGroupIds.has(group.id)}
+                      onChange={(e) => {
+                        const newGroups = new Set(selectedGroupIds);
+                        if (e.target.checked) {
+                          newGroups.add(group.id);
+                        } else {
+                          newGroups.delete(group.id);
+                        }
+                        setSelectedGroupIds(newGroups);
+                      }}
+                      disabled={loading}
+                      className="w-4 h-4 rounded border-zinc-300 text-black focus:ring-0 dark:bg-zinc-800 dark:border-zinc-600"
+                    />
+                    <span className="text-sm text-zinc-700 dark:text-zinc-300">
+                      {group.name}
+                    </span>
+                  </label>
+                ))
+              ) : (
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  No groups created yet
+                </p>
+              )}
+            </div>
+          )}
+        </div>
 
         {/* Submit Button */}
         <button

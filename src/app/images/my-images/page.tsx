@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { DeleteImageButton } from "./delete-button";
 
 async function UserImages() {
   const session = await auth();
@@ -100,17 +101,7 @@ async function UserImages() {
             >
               Edit
             </Link>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                if (confirm("Are you sure you want to delete this image?")) {
-                  fetch(`/api/images/${image.id}`, { method: "DELETE" });
-                }
-              }}
-              className="flex-1 rounded-md bg-red-100 px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-200 dark:bg-red-950 dark:text-red-200 dark:hover:bg-red-900"
-            >
-              Delete
-            </button>
+            <DeleteImageButton imageId={image.id} />
           </div>
         </div>
       ))}

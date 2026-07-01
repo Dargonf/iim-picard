@@ -1,10 +1,13 @@
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
+import { unlink } from "fs/promises";
+import { join } from "path";
 
 const updateImageSchema = z.object({
   name: z.string().min(1).max(255).optional(),
   isPublic: z.boolean().optional(),
+  groupIds: z.array(z.string()).optional(),
 });
 
 export async function PUT(
@@ -23,7 +26,7 @@ export async function PUT(
     }
 
     const body = await request.json();
-    const { name, isPublic } = updateImageSchema.parse(body);
+    const { name, isPublic, groupIds } = updateImageSchema.parse(body);
 
     // Check if image exists and user owns it
     const image = await prisma.image.findUnique({
@@ -50,6 +53,11 @@ export async function PUT(
       data: {
         ...(name !== undefined && { name }),
         ...(isPublic !== undefined && { isPublic }),
+        ...(groupIds !== undefined && {
+          groups: {
+            set: groupIds.map((gid) => ({ id: gid })),
+          },
+        }),
       },
     });
 
@@ -118,6 +126,14 @@ export async function DELETE(
     await prisma.image.delete({
       where: { id },
     });
+
+    // Delete the actual file from the server
+    const filePath = join(process.cwd(), "public", "uploads", `${id}.${image.extension}`);
+    try {
+      await unlink(filePath);
+    } catch (err) {
+      console.error("Error deleting file:", err);
+    }
 
     return Response.json(
       { message: "Image deleted successfully" },

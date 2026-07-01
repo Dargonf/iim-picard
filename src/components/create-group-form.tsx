@@ -35,10 +35,11 @@ export function CreateGroupForm() {
 
       if (!response.ok) {
         setError(data.error || "Failed to create group");
+        setLoading(false);
         return;
       }
 
-      e.currentTarget.reset();
+      e.currentTarget?.reset();
       router.refresh();
     } catch (err) {
       setError("An error occurred while creating the group");

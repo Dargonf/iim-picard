@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f40f7cd9-5710-4e63-b6eb-ad2b1e17d4ae" name="Changes" comment="chore: add ide config files">
-      <change afterPath="$PROJECT_DIR$/prisma.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/api/auth/[...nextauth]/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/prisma.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/next-auth.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/personal-website-bis.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/images/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/images/[id]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/upload/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/upload/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/images/my-images/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/images/my-images/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/images/upload/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/images/upload/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/create-group-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/create-group-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/edit-image-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/edit-image-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/manage-group-images.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/manage-group-images.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,73 +21,85 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="40" />
+    <option name="cachedIndexableFilesCount" value="74" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Dargonf"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Dargonf/iim-picard.git",
+    "accountId": "42a9fff2-b08c-413e-ae90-14a7a599fbc5"
+  }
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.244782364975808" />
-      <entry key="MS500" value="3.852528937684615" />
-      <entry key="S2" value="12.735877539217201" />
-      <entry key="S5" value="26.586844415334355" />
-      <entry key="S10" value="38.582624327560076" />
-      <entry key="S30" value="51.84146318424257" />
-      <entry key="S60" value="56.25501116341197" />
-      <entry key="M2" value="60.54283959002162" />
-      <entry key="M5" value="73.82519880831231" />
-      <entry key="M10" value="101.61490762068252" />
-      <entry key="M15" value="148.25012488303253" />
-      <entry key="M30" value="335.26345882368196" />
-      <entry key="H1" value="652.7541644264694" />
-      <entry key="H2" value="991.3369401630888" />
-      <entry key="H4" value="1251.0241540055943" />
-      <entry key="D1" value="1537.9315825593233" />
-      <entry key="W1" value="1595.197222468065" />
+      <entry key="MS100" value="1.5915618512021772" />
+      <entry key="MS500" value="4.705419311944898" />
+      <entry key="S2" value="11.363022781621458" />
+      <entry key="S5" value="16.895389020778573" />
+      <entry key="S10" value="19.943751234352078" />
+      <entry key="S30" value="22.513934866956696" />
+      <entry key="S60" value="23.248280612660647" />
+      <entry key="M2" value="24.882496350434398" />
+      <entry key="M5" value="53.05838721316424" />
+      <entry key="M10" value="123.61884489440175" />
+      <entry key="M15" value="191.5320173299298" />
+      <entry key="M30" value="387.39143794738084" />
+      <entry key="H1" value="733.5264841669789" />
+      <entry key="H2" value="1159.2194356616083" />
+      <entry key="H4" value="1521.5872480077082" />
+      <entry key="D1" value="1953.611593152895" />
+      <entry key="W1" value="2043.4970083738426" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="4.7239609732902983E-306" />
-      <entry key="S10" value="2.1736530619940905E-153" />
-      <entry key="S30" value="1.3542689351328068E-51" />
-      <entry key="S60" value="4.4918436817997895E-26" />
-      <entry key="M2" value="3.148456839646514E-13" />
-      <entry key="M5" value="1.9939140012905763E-5" />
-      <entry key="M10" value="0.009183676524429455" />
-      <entry key="M15" value="0.07434167332753969" />
-      <entry key="M30" value="0.6339619045935605" />
-      <entry key="H1" value="1.9154739367266778" />
-      <entry key="H2" value="3.372159160642989" />
-      <entry key="H4" value="4.491647255537047" />
-      <entry key="D1" value="5.716139272626032" />
-      <entry key="W1" value="5.958570047291667" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="1.0336138990363866E-234" />
+      <entry key="S30" value="1.057046974839705E-78" />
+      <entry key="S60" value="1.2549294747428841E-39" />
+      <entry key="M2" value="5.2625360871416127E-20" />
+      <entry key="M5" value="3.881015347018437E-8" />
+      <entry key="M10" value="4.051688481591215E-4" />
+      <entry key="M15" value="0.00928208008747952" />
+      <entry key="M30" value="0.22401115795070925" />
+      <entry key="H1" value="1.1386217928378297" />
+      <entry key="H2" value="2.599918215886574" />
+      <entry key="H4" value="3.9439504814058908" />
+      <entry key="D1" value="5.593587510900743" />
+      <entry key="W1" value="5.940150187902488" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.1810172669324412" />
-      <entry key="MS500" value="3.8027948019336035" />
-      <entry key="S2" value="12.699102761140521" />
-      <entry key="S5" value="26.559560501350525" />
-      <entry key="S10" value="38.563774042736284" />
-      <entry key="S30" value="51.833288206894316" />
-      <entry key="S60" value="56.25061042865902" />
-      <entry key="M2" value="60.540485479659786" />
-      <entry key="M5" value="73.82408065100567" />
-      <entry key="M10" value="101.62323436452337" />
-      <entry key="M15" value="148.3234080765508" />
-      <entry key="M30" value="335.8955589000386" />
-      <entry key="H1" value="654.6674337462101" />
-      <entry key="H2" value="994.7073183184348" />
-      <entry key="H4" value="1255.5146563042963" />
-      <entry key="D1" value="1543.6474851874732" />
-      <entry key="W1" value="1601.1557574201954" />
+      <entry key="MS100" value="1.52997616510835" />
+      <entry key="MS500" value="4.6661003444154865" />
+      <entry key="S2" value="11.33764495802133" />
+      <entry key="S5" value="16.87989837397024" />
+      <entry key="S10" value="19.93451697199327" />
+      <entry key="S30" value="22.510435986354945" />
+      <entry key="S60" value="23.24647082636759" />
+      <entry key="M2" value="24.881517874953428" />
+      <entry key="M5" value="53.05744950958275" />
+      <entry key="M10" value="123.61805978839337" />
+      <entry key="M15" value="191.54000601361722" />
+      <entry key="M30" value="387.6138443422181" />
+      <entry key="H1" value="734.663170450869" />
+      <entry key="H2" value="1161.8176184298688" />
+      <entry key="H4" value="1525.5299976445308" />
+      <entry key="D1" value="1959.2049143313286" />
+      <entry key="W1" value="2049.437118553195" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -105,34 +111,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.preferred.runtime.type.id": "node",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/dargo/WebstormProjects/personal-website-bis/src/types",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "C:\\Users\\dargo\\WebstormProjects\\personal-website-bis\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dargo/WebstormProjects/personal-website-bis/src/types&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\dargo\\WebstormProjects\\personal-website-bis\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dargo\WebstormProjects\personal-website-bis\src\types" />
@@ -176,6 +182,7 @@
       <workItem from="1782810443956" duration="5282000" />
       <workItem from="1782820860255" duration="346000" />
       <workItem from="1782821221420" duration="6214000" />
+      <workItem from="1782890558273" duration="3897000" />
     </task>
     <task id="LOCAL-00001" summary="chore: add ide config files">
       <option name="closed" value="true" />
