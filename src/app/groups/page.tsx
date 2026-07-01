@@ -16,6 +16,14 @@ async function GroupsContent() {
   const groups = await prisma.group.findMany({
     where: { ownerId: session.user.uuid },
     include: {
+      images: {
+        select: {
+          id: true,
+          name: true,
+          extension: true,
+        },
+        take: 4, // Limit to 4 images for preview
+      },
       _count: {
         select: { images: true },
       },

@@ -91,7 +91,7 @@ export default async function GroupPage({
           </p>
         </div>
 
-        <ManageGroupImages group={group} userId={session.user.uuid} />
+        <ManageGroupImages group={group} />
       </div>
     </div>
   );

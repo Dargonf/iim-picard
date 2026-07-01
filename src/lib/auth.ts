@@ -20,14 +20,15 @@ declare module "next-auth" {
     }
 }
 
-declare module "next-auth/jwt" {
-    interface JWT {
-        uuid: string;
-        username: string;
-        sessionVersion: number;
-        invalid?: boolean;
-    }
-}
+// JWT augmentation is handled through NextAuth User interface
+// declare module "next-auth/jwt" {
+//     interface JWT {
+//         uuid: string;
+//         username: string;
+//         sessionVersion: number;
+//         invalid?: boolean;
+//     }
+// }
 
 export const {handlers, signIn, signOut, auth} = NextAuth({
     providers: [

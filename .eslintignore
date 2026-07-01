@@ -1,0 +1,10 @@
+# Ignore documentation and skill files
+SKILLS/
+PROJECT_GUIDE.md
+mcp/
+
+# Standard ignores
+node_modules/
+.next/
+dist/
+build/

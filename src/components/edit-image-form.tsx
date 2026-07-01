@@ -2,7 +2,7 @@
 
 import { FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Image, Tag, Group } from "@prisma/client";
+import type { Image, Tag, Group } from "@/lib/prisma/client";
 
 interface EditImageFormProps {
   image: Image & { tags: Tag[]; groups: Group[] };

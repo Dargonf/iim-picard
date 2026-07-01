@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Group, Image } from "@prisma/client";
+import type { Group, Image } from "@/lib/prisma/client";
 
 interface ManageGroupImagesProps {
   group: Group & { images: Array<Pick<Image, "id" | "name" | "extension">> };

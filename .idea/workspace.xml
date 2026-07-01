@@ -4,16 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f40f7cd9-5710-4e63-b6eb-ad2b1e17d4ae" name="Changes" comment="chore: add ide config files">
+    <list default="true" id="f40f7cd9-5710-4e63-b6eb-ad2b1e17d4ae" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/.claude/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mcp.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PROJECT_GUIDE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SKILLS/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SKILLS/api-endpoints.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SKILLS/code-review.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SKILLS/component-analyzer.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SKILLS/schema-migrator.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SKILLS/test-generator.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mcp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mcp/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/images/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/images/[id]/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/upload/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/upload/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/images/my-images/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/images/my-images/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/images/upload/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/images/upload/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/create-group-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/create-group-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/groups/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/groups/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/groups/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/groups/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/edit-image-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/edit-image-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/groups-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/groups-list.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/manage-group-images.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/manage-group-images.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/auth.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,62 +56,65 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.5915618512021772" />
-      <entry key="MS500" value="4.705419311944898" />
-      <entry key="S2" value="11.363022781621458" />
-      <entry key="S5" value="16.895389020778573" />
-      <entry key="S10" value="19.943751234352078" />
-      <entry key="S30" value="22.513934866956696" />
-      <entry key="S60" value="23.248280612660647" />
-      <entry key="M2" value="24.882496350434398" />
-      <entry key="M5" value="53.05838721316424" />
-      <entry key="M10" value="123.61884489440175" />
-      <entry key="M15" value="191.5320173299298" />
-      <entry key="M30" value="387.39143794738084" />
-      <entry key="H1" value="733.5264841669789" />
-      <entry key="H2" value="1159.2194356616083" />
-      <entry key="H4" value="1521.5872480077082" />
-      <entry key="D1" value="1953.611593152895" />
-      <entry key="W1" value="2043.4970083738426" />
+      <entry key="MS100" value="1.4354630076933135" />
+      <entry key="MS500" value="2.25619646608967" />
+      <entry key="S2" value="3.7231377868545934" />
+      <entry key="S5" value="10.256030011892243" />
+      <entry key="S10" value="19.373798040475595" />
+      <entry key="S30" value="32.40807080280902" />
+      <entry key="S60" value="37.461370617602746" />
+      <entry key="M2" value="41.905783731205666" />
+      <entry key="M5" value="52.937011822987856" />
+      <entry key="M10" value="81.42172344467811" />
+      <entry key="M15" value="110.83473995109547" />
+      <entry key="M30" value="181.9240169889423" />
+      <entry key="H1" value="285.33053709534363" />
+      <entry key="H2" value="494.05175486939953" />
+      <entry key="H4" value="936.9739304297296" />
+      <entry key="D1" value="2152.0788530464106" />
+      <entry key="W1" value="2543.590161114473" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="1.0336138990363866E-234" />
-      <entry key="S30" value="1.057046974839705E-78" />
-      <entry key="S60" value="1.2549294747428841E-39" />
-      <entry key="M2" value="5.2625360871416127E-20" />
-      <entry key="M5" value="3.881015347018437E-8" />
-      <entry key="M10" value="4.051688481591215E-4" />
-      <entry key="M15" value="0.00928208008747952" />
-      <entry key="M30" value="0.22401115795070925" />
-      <entry key="H1" value="1.1386217928378297" />
-      <entry key="H2" value="2.599918215886574" />
-      <entry key="H4" value="3.9439504814058908" />
-      <entry key="D1" value="5.593587510900743" />
-      <entry key="W1" value="5.940150187902488" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="1.6930073E-317" />
+      <entry key="S60" value="5.022286540520525E-159" />
+      <entry key="M2" value="1.0527764724002315E-79" />
+      <entry key="M5" value="5.121554441826425E-32" />
+      <entry key="M10" value="4.654405997524531E-16" />
+      <entry key="M15" value="1.018116452919601E-10" />
+      <entry key="M30" value="2.3460956984848038E-5" />
+      <entry key="H1" value="0.011652457508696435" />
+      <entry key="H2" value="0.2630139023071229" />
+      <entry key="H4" value="1.2544142026628933" />
+      <entry key="D1" value="4.621419102108251" />
+      <entry key="W1" value="5.78032708319041" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.52997616510835" />
-      <entry key="MS500" value="4.6661003444154865" />
-      <entry key="S2" value="11.33764495802133" />
-      <entry key="S5" value="16.87989837397024" />
-      <entry key="S10" value="19.93451697199327" />
-      <entry key="S30" value="22.510435986354945" />
-      <entry key="S60" value="23.24647082636759" />
-      <entry key="M2" value="24.881517874953428" />
-      <entry key="M5" value="53.05744950958275" />
-      <entry key="M10" value="123.61805978839337" />
-      <entry key="M15" value="191.54000601361722" />
-      <entry key="M30" value="387.6138443422181" />
-      <entry key="H1" value="734.663170450869" />
-      <entry key="H2" value="1161.8176184298688" />
-      <entry key="H4" value="1525.5299976445308" />
-      <entry key="D1" value="1959.2049143313286" />
-      <entry key="W1" value="2049.437118553195" />
+      <entry key="MS100" value="1.338561170184757" />
+      <entry key="MS500" value="2.227203403602115" />
+      <entry key="S2" value="3.710976232214338" />
+      <entry key="S5" value="10.242737030165701" />
+      <entry key="S10" value="19.361295590925764" />
+      <entry key="S30" value="32.401069728467796" />
+      <entry key="S60" value="37.457291095165026" />
+      <entry key="M2" value="41.903401645809446" />
+      <entry key="M5" value="52.93569678280101" />
+      <entry key="M10" value="81.4207096281112" />
+      <entry key="M15" value="110.83383527148621" />
+      <entry key="M30" value="181.9233237875753" />
+      <entry key="H1" value="285.34164154737476" />
+      <entry key="H2" value="494.3142430108595" />
+      <entry key="H4" value="938.2277544741901" />
+      <entry key="D1" value="2156.7000112273204" />
+      <entry key="W1" value="2549.3704432482114" />
     </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6,
@@ -182,7 +196,7 @@
       <workItem from="1782810443956" duration="5282000" />
       <workItem from="1782820860255" duration="346000" />
       <workItem from="1782821221420" duration="6214000" />
-      <workItem from="1782890558273" duration="3897000" />
+      <workItem from="1782890558273" duration="13256000" />
     </task>
     <task id="LOCAL-00001" summary="chore: add ide config files">
       <option name="closed" value="true" />
@@ -192,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782811006214</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=".">
+      <option name="closed" value="true" />
+      <created>1782897523095</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1782897523095</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +233,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chore: add ide config files" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add ide config files" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

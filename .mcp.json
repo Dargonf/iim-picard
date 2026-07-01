@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "project-skills": {
+      "command": "node",
+      "args": ["mcp/server.js"],
+      "disabled": false,
+      "alwaysAllow": true
+    }
+  }
+}
